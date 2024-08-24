@@ -97,6 +97,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyBullet: {fileID: 5423511867882683586, guid: d1a6500ec6bf76c4683a73d7c5bb88ca, type: 3}
+  multishot: {fileID: 5419570585325576771, guid: ab06499d5bd3d8942b9a9ab92a5c250a, type: 3}
+  speedup: {fileID: 7556150934420745433, guid: c531ab634a8bb1d42865b4848ace073e, type: 3}
 --- !u!64 &2360327442818302600
 MeshCollider:
   m_ObjectHideFlags: 0

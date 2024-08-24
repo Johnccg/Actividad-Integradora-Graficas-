@@ -10,16 +10,19 @@ public class PlayerController : MonoBehaviour
     private float horizontalInput;
     private float forwardInput;
     public HealthUI healthbar;
-    private int health = 150;
+    private int health = 100;
     public GameObject PlayerBullet;
     public GameObject BulletHolder;
     public float cooldown;
+    private float startingCooldown;
     private bool canShoot = true;
     public static Action GameOver;
+    private int shots = 1;
     // Start is called before the first frame update
     void Start()
     {
         healthbar.setMaxHealth(health);
+        startingCooldown = cooldown;
     }
 
     void Update()
@@ -43,8 +46,16 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKey(KeyCode.Space)){
             if(canShoot){
                 StartCoroutine(shootCooldown());
-                GameObject temp = Instantiate(PlayerBullet, transform.position, Quaternion.Euler(0,180,0));
-                temp.transform.SetParent(BulletHolder.transform);
+                if (shots > 1){
+                    int interval = 90 / shots;
+                    for (int i = 0; i < 90; i += interval){
+                        GameObject temp = Instantiate(PlayerBullet, transform.position, Quaternion.Euler(0,i + 150,0));
+                        temp.transform.SetParent(BulletHolder.transform);
+                    }
+                }else{
+                    GameObject temp = Instantiate(PlayerBullet, transform.position, Quaternion.Euler(0,180,0));
+                    temp.transform.SetParent(BulletHolder.transform);
+                }
             }
         }
     }
@@ -69,5 +80,19 @@ public class PlayerController : MonoBehaviour
     private void takeDamage(){
         health -= 10;
         healthbar.setHealth(health);
+        shots = 1;
+        cooldown = startingCooldown;
+    }
+
+    public void multishot(){
+        if (shots < 5){
+            shots += 2;
+        }
+    }
+
+    public void speedUp(){
+        if (cooldown > 0.3f){
+            cooldown -= 0.1f;
+        }
     }
 }

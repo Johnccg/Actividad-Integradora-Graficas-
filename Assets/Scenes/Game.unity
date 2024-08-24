@@ -644,7 +644,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -376.22656, w: 0}
+  m_margin: {x: 0, y: 0, z: -466.37894, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2127,7 +2127,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -347.77344, w: 0}
+  m_margin: {x: 0, y: 0, z: -455.78226, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2862,7 +2862,7 @@ MonoBehaviour:
   healthbar: {fileID: 2002007842}
   PlayerBullet: {fileID: 6098094693304327178, guid: 549c16114a2a22e4aa0b8753f8d355ec, type: 3}
   BulletHolder: {fileID: 1484289239}
-  cooldown: 0.5
+  cooldown: 0.8
 --- !u!1 &2002007840
 GameObject:
   m_ObjectHideFlags: 0

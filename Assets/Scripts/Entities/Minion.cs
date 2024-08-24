@@ -12,7 +12,8 @@ public class Minion : MonoBehaviour
     private bool finished = true;
     private int health = 2;
     public static Action damagePlayer;
-
+    public GameObject multishot;
+    public GameObject speedup;
     void Start() {
         BulletHolder = GameObject.FindGameObjectWithTag("Holder");
         delay = UnityEngine.Random.Range(0.8f, 2f);
@@ -23,6 +24,13 @@ public class Minion : MonoBehaviour
         transform.Translate(Vector3.left * speed * Time.deltaTime);
 
         if(health <= 0){
+            if (UnityEngine.Random.value > 0.5f){
+                if (UnityEngine.Random.value > 0.6f){
+                    Instantiate(speedup, transform.position + new Vector3(0,0.5f,0), Quaternion.identity);
+                }else{
+                    Instantiate(multishot, transform.position + new Vector3(0,0.5f,0), Quaternion.identity);
+                }
+            }
             Destroy(gameObject);
         }
         if (finished) {

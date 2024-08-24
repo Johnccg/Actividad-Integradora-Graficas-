@@ -26,9 +26,9 @@ public class PlayerBullet : MonoBehaviour
             Destroy(gameObject);
         }
         else if (target.tag == "Enemy"){
-            // Boss script = target.GetComponent<Boss>();
-            // script.dealDamage(1);
-            // Destroy(gameObject);
+            Minion script = target.GetComponent<Minion>();
+            script.dealDamage(1);
+            Destroy(gameObject);
         }
     }
 }

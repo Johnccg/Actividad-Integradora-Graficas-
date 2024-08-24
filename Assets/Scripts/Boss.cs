@@ -11,8 +11,8 @@ public class Boss : MonoBehaviour
     public GameObject BulletHolder;
     public int speed;
     private bool updateSpeed;
-    private int time = 1;
-    private int second = int.MaxValue;
+    private int time = 500;
+    private int second = 100000;
     private Vector3 target;
     private bool stay;
     public static Action damagePlayer;

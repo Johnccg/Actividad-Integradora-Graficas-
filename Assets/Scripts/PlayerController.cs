@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     private float horizontalInput;
     private float forwardInput;
     public HealthUI healthbar;
-    private int health = 100;
+    private int health = 150;
     public GameObject PlayerBullet;
     public GameObject BulletHolder;
     public float cooldown;
@@ -52,11 +52,13 @@ public class PlayerController : MonoBehaviour
     public void OnEnable(){
         EnemyBullet.damagePlayer += takeDamage;
         Boss.damagePlayer += takeDamage;
+        Minion.damagePlayer += takeDamage;
     }
 
     public void OnDisable(){
         EnemyBullet.damagePlayer -= takeDamage;
         Boss.damagePlayer -= takeDamage;
+        Minion.damagePlayer -= takeDamage;
     }
     private IEnumerator shootCooldown(){
         canShoot = false;

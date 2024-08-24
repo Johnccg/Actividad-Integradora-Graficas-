@@ -20,12 +20,15 @@ public class Boss : MonoBehaviour
     private int startingHealth;
     public HealthUI healthbar;
     public static Action win;
+    private Animator animator;
 
     void Start()
     {
+        animator = GetComponent<Animator>();
         target = GetRandomPosition();
         healthbar.setMaxHealth(health);
         startingHealth = health;
+        animator.speed = 0f;
     }
 
     void Update()
@@ -103,6 +106,7 @@ public class Boss : MonoBehaviour
     }
 
     private IEnumerator Cicles(int repeat, int streams){
+        animator.Play("BossShoot");
         int offsetMag = 360 / streams / 2;
         int offset = 0;
         for (int i = 0; i < repeat; i++){
@@ -110,21 +114,26 @@ public class Boss : MonoBehaviour
             offset += offsetMag;
             yield return new WaitForSeconds(0.8f);
         }
+        animator.Play("Boss");
     }
 
     private IEnumerator radiusShoot(int offset, int advanceDeg, int streams){
+        animator.Play("BossShoot");
         for (int i = 0; i < 360; i += advanceDeg){
             CircleShoot(streams, i + offset);
             yield return new WaitForSeconds(0.1f);
         }
+        animator.Play("Boss");
     }
 
     private IEnumerator Curve(int bullets, int streams){
+        animator.Play("BossShoot");
         for (int i = 0; i < bullets; i ++){
             CircleShoot(streams, true, true);
             CircleShoot(streams, true, false);
             yield return new WaitForSeconds(0.5f);
         }
+        animator.Play("Boss");
     }
     private void CircleShoot(int streams, int offset)
     {
@@ -164,5 +173,12 @@ public class Boss : MonoBehaviour
     public void dealDamage(int damage){
         health -= damage;
         healthbar.setHealth(health);
+    }
+
+    private void avanzarUnFrame()
+    {
+        AnimatorStateInfo currentState = animator.GetCurrentAnimatorStateInfo(0);
+        float newTime = currentState.normalizedTime + (1f / animator.GetCurrentAnimatorClipInfo(0).Length);
+        animator.Play(currentState.fullPathHash, -1, newTime);
     }
 }

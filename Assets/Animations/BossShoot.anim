@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Boss
+  m_Name: BossShoot
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,7 +21,7 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -7714551314467887396, guid: f0c31da7eb3728f43be52ccf3dff9e87, type: 3}
+      value: {fileID: -8213443026856553256, guid: f211be9512bb3874eb964baaff0ce0fd, type: 3}
     attribute: m_Mesh
     path: 
     classID: 33
@@ -44,7 +44,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -7714551314467887396, guid: f0c31da7eb3728f43be52ccf3dff9e87, type: 3}
+    - {fileID: -8213443026856553256, guid: f211be9512bb3874eb964baaff0ce0fd, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
